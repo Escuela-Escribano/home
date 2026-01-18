@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:www.escuelaescribano.com)"
+      "WebFetch(domain:www.escuelaescribano.com)",
+      "WebFetch(domain:cdn.prod.website-files.com)",
+      "WebFetch(domain:cursos.escuelaescribano.com)",
+      "WebSearch",
+      "WebFetch(domain:escuelaescribano.substack.com)",
+      "Bash(python3:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)"
     ]
   }
 }

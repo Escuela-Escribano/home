@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escuela Escribano - Formación para profesionales de producto</title>
-    <meta name="description" content="Impulsamos a los profesionales de producto y sus equipos hacia la excelencia. Cursos de Product Analytics y Product Engineering.">
+    <meta name="description" content="Formamos a equipos de producto e ingeniería en las skills más críticas de la era de la IA. Más de 300 profesionales de más de 40 empresas ya se han formado con nosotros.">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,10 +12,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/6324e8c8ee4b0d0be3fa2fa2_logo_escuela_escribano_primary.png">
+    <link rel="icon" type="image/png" href="images/logo_primary.png">
 
     <script>
         tailwind.config = {
@@ -23,15 +23,33 @@
                 extend: {
                     fontFamily: {
                         'montserrat': ['Montserrat', 'sans-serif'],
-                        'inter': ['Inter', 'sans-serif'],
                     },
                     colors: {
                         'brand': {
-                            'blue': '#2563eb',
-                            'dark': '#1e293b',
-                            'gray': '#64748b',
-                            'light': '#f8fafc',
+                            'blue': '#2662fa',
+                            'dark': '#1f2432',
+                            'gray': '#6d768d',
+                            'light': '#f5f7fa',
+                            'white': '#ffffff',
+                            'raspberry': '#e84755',
+                            'yellow': '#fccf00',
+                            'purple': '#9b51e0',
+                            'orange': '#ee7a0b',
                         }
+                    },
+                    fontSize: {
+                        'h1': ['50px', { lineHeight: '1.2', fontWeight: '300' }],
+                        'h2': ['42px', { lineHeight: '1.2', fontWeight: '300' }],
+                        'h3': ['28px', { lineHeight: '1.3', fontWeight: '300' }],
+                        'h4': ['22px', { lineHeight: '1.4', fontWeight: '500' }],
+                        'h5': ['18px', { lineHeight: '1.5', fontWeight: '600' }],
+                        'body': ['18px', { lineHeight: '1.667' }],
+                    },
+                    boxShadow: {
+                        'card': '0 1px 9px 0 rgba(31,36,50,0.05), 0 24px 38px 0 rgba(31,36,50,0.13)',
+                    },
+                    borderRadius: {
+                        'pill': '1000px',
                     }
                 }
             }
@@ -43,83 +61,195 @@
             scroll-behavior: smooth;
         }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            line-height: 1.667;
+            color: #6d768d;
         }
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
+            color: #1f2432;
+        }
+        .btn-primary {
+            background-color: #1f2432;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 1000px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-primary:hover {
+            background-color: #2662fa;
+            transform: scale(0.96);
+        }
+        .btn-primary.btn-lg {
+            padding: 20px 36px;
+            font-size: 18px;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #1f2432;
+            padding: 14px 30px;
+            border: 2px solid #1f2432;
+            border-radius: 1000px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-secondary:hover {
+            background-color: #edf1f5;
+            transform: scale(0.96);
+        }
+        .btn-secondary-light {
+            background-color: transparent;
+            color: #ffffff;
+            padding: 14px 30px;
+            border: 2px solid #ffffff;
+            border-radius: 1000px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-secondary-light:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: scale(0.96);
+        }
+        /* Instructor hover effect */
+        .instructor-card {
+            position: relative;
+            display: inline-block;
+            transition: transform 0.3s ease, z-index 0s;
+        }
+        .instructor-card:hover {
+            transform: scale(1.08);
+            z-index: 50 !important;
+        }
+        .instructor-card img {
+            transition: box-shadow 0.3s ease;
+        }
+        .instructor-card:hover img {
+            box-shadow: 0 8px 30px rgba(31,36,50,0.25);
+        }
+        /* Popover tooltip */
+        .instructor-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-8px);
+            background: #1f2432;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+            width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 100;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .instructor-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: #1f2432;
+        }
+        .instructor-card:hover .instructor-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        .instructor-tooltip .name {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+        .instructor-tooltip .role {
+            color: #a0a8b8;
+            font-size: 13px;
         }
     </style>
 </head>
-<body class="bg-white text-brand-dark">
+<body class="bg-white">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+    <nav class="bg-white">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="flex justify-between items-center py-8">
                 <a href="#" class="flex items-center">
                     <img
-                        src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/6324e8c8ee4b0d0be3fa2fa2_logo_escuela_escribano_primary.png"
+                        src="images/logo_primary.png"
                         alt="Escuela Escribano"
-                        class="h-10"
+                        class="h-14"
                     >
                 </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#sobre" class="text-brand-gray hover:text-brand-dark transition-colors font-medium">Sobre la Escuela</a>
-                    <a href="#cursos" class="text-brand-gray hover:text-brand-dark transition-colors font-medium">Cursos</a>
-                    <a href="#testimonios" class="text-brand-gray hover:text-brand-dark transition-colors font-medium">Testimonios</a>
-                    <a href="#contacto" class="text-brand-gray hover:text-brand-dark transition-colors font-medium">Contacto</a>
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="#sobre" class="text-brand-dark hover:text-brand-blue transition-colors font-normal text-lg">Sobre la Escuela</a>
+                    <a href="#cursos" class="text-brand-dark hover:text-brand-blue transition-colors font-normal text-lg">Nuestros cursos</a>
+                    <a href="#testimonios" class="text-brand-dark hover:text-brand-blue transition-colors font-normal text-lg">Testimonios</a>
+                    <a href="#contacto" class="text-brand-dark hover:text-brand-blue transition-colors font-normal text-lg">Contacto</a>
                 </div>
-                <a href="#cursos" class="hidden md:inline-flex bg-brand-blue text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                    Ver cursos
-                </a>
                 <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-brand-dark">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
             </div>
         </div>
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-            <div class="px-4 py-4 space-y-3">
-                <a href="#sobre" class="block text-brand-gray hover:text-brand-dark font-medium">Sobre la Escuela</a>
-                <a href="#cursos" class="block text-brand-gray hover:text-brand-dark font-medium">Cursos</a>
-                <a href="#testimonios" class="block text-brand-gray hover:text-brand-dark font-medium">Testimonios</a>
-                <a href="#contacto" class="block text-brand-gray hover:text-brand-dark font-medium">Contacto</a>
-                <a href="#cursos" class="block bg-brand-blue text-white px-5 py-2.5 rounded-lg font-semibold text-center">Ver cursos</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
+            <div class="px-6 py-6 space-y-4">
+                <a href="#sobre" class="block text-brand-dark hover:text-brand-blue font-normal text-lg">Sobre la Escuela</a>
+                <a href="#cursos" class="block text-brand-dark hover:text-brand-blue font-normal text-lg">Nuestros cursos</a>
+                <a href="#testimonios" class="block text-brand-dark hover:text-brand-blue font-normal text-lg">Testimonios</a>
+                <a href="#contacto" class="block text-brand-dark hover:text-brand-blue font-normal text-lg">Contacto</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-brand-light to-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight mb-6">
-                        Impulsamos a los profesionales de producto hacia la <span class="text-brand-blue">excelencia</span>
+    <section class="pt-16 pb-20 md:pt-20 md:pb-32 bg-white relative overflow-hidden">
+        <!-- Blue background on right side -->
+        <div class="absolute top-0 bottom-0 right-0 w-[52%] bg-brand-blue -z-10 hidden lg:block"></div>
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="text-center lg:text-left max-w-xl mx-auto lg:max-w-none lg:mx-0">
+                    <h1 class="text-[50px] leading-[1.2] font-light text-brand-dark mb-8">
+                        Formamos a equipos de producto e ingeniería
                     </h1>
-                    <p class="text-lg md:text-xl text-brand-gray mb-8 leading-relaxed">
-                        Las startups necesitan líderes que crezcan al ritmo que crece la empresa. Nuestra misión es elevar el nivel de los profesionales y equipos de producto.
+                    <p class="text-lg text-brand-gray mb-10 leading-relaxed">
+                        En este nuevo mundo de la IA, las empresas necesitan profesionales que piensen mejor, sean más analíticos y estén más conectados con el negocio. Más de 500 profesionales ya se han formado con nosotros.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#cursos" class="inline-flex justify-center items-center bg-brand-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 lg:mb-0">
+                        <a href="#cursos" class="btn-primary">
                             Ver cursos
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                            </svg>
-                        </a>
-                        <a href="#sobre" class="inline-flex justify-center items-center border-2 border-brand-dark text-brand-dark px-8 py-4 rounded-lg font-semibold text-lg hover:bg-brand-dark hover:text-white transition-colors">
-                            Conocer más
                         </a>
                     </div>
                 </div>
-                <div class="relative">
+                <div class="relative max-w-md mx-auto mt-4 lg:mt-0">
+                    <!-- Blob background decoration -->
+                    <svg class="absolute -inset-8 w-[calc(100%+64px)] h-[calc(100%+64px)]" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M350 180C370 230 360 300 300 340C240 380 160 370 100 330C40 290 20 220 40 160C60 100 120 50 190 40C260 30 330 130 350 180Z" fill="#2662fa" fill-opacity="0.08"/>
+                    </svg>
                     <img
-                        src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/6553f6095299febfe3b18a89_illustration_hero.png"
+                        src="images/hero_illustration.png"
                         alt="Ilustración de equipo de producto"
-                        class="w-full max-w-lg mx-auto"
+                        class="relative w-full"
                     >
                 </div>
             </div>
@@ -127,37 +257,116 @@
     </section>
 
     <!-- About Section -->
-    <section id="sobre" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <p class="text-brand-blue font-semibold text-sm uppercase tracking-wider mb-3">Quién está detrás</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark">Conoce la Escuela Escribano</h2>
+    <section id="sobre" class="py-20 md:py-32 bg-brand-light">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-brand-blue font-semibold text-sm uppercase tracking-wider mb-4">Javier Escribano</p>
+                <h2 class="text-[42px] leading-[1.2] font-light text-brand-dark">Conoce la escuela</h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1">
-                    <img
-                        src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/65666b74c8d1ddcef4887a61_Javier%20Escribano%202023.webp"
-                        alt="Javier Escribano"
-                        class="w-full max-w-md mx-auto rounded-2xl shadow-lg"
-                    >
+            <div class="grid lg:grid-cols-2 gap-8 items-start">
+                <div class="order-2 lg:order-1 mt-20">
+                    <!-- Unified Block with Blob Background -->
+                    <div class="relative max-w-md mx-auto">
+                        <!-- Blob background that unifies both sections -->
+                        <svg class="absolute -inset-8 w-[calc(100%+64px)] h-[calc(100%+64px)]" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                            <path d="M360 80C380 130 370 200 350 270C330 340 340 400 300 450C240 510 140 490 80 440C20 390 10 320 20 250C30 180 60 120 110 70C160 20 240 10 300 30C340 45 345 50 360 80Z" fill="#2662fa" fill-opacity="0.07"/>
+                        </svg>
+
+                        <!-- Javier Photo -->
+                        <div class="relative max-w-xs mx-auto mb-16">
+                            <div class="instructor-card">
+                                <img
+                                    src="images/javier_escribano.webp"
+                                    alt="Javier Escribano"
+                                    class="relative w-full rounded-2xl shadow-card aspect-square object-cover"
+                                >
+                                <div class="instructor-tooltip">
+                                    <div class="name">Javier Escribano</div>
+                                    <div class="role">Director y profesor principal de todos los cursos</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Invited Professionals Puzzle Stack -->
+                        <div class="relative flex flex-col items-center pb-4">
+                            <div class="relative h-56 w-[320px]">
+                                <!-- Row 1 -->
+                                <div class="instructor-card absolute" style="left: 0; top: 0; z-index: 1;">
+                                    <img src="images/professionals/isa_garate.jpg" alt="Isa Gárate" class="w-[7rem] h-[7rem] rounded-xl object-cover shadow-card transform -rotate-6">
+                                    <div class="instructor-tooltip">
+                                        <div class="name">Isabel Gárate</div>
+                                        <div class="role">Cómo ingeniería puede liderar el proceso de producto</div>
+                                    </div>
+                                </div>
+                                <div class="instructor-card absolute" style="left: 90px; top: 10px; z-index: 2;">
+                                    <img src="images/professionals/antonio_espinosa.jpeg" alt="Antonio Espinosa" class="w-[5.75rem] h-[5.75rem] rounded-xl object-cover shadow-card transform rotate-4">
+                                    <div class="instructor-tooltip">
+                                        <div class="name">Antonio Espinosa</div>
+                                        <div class="role">Decisiones de construir vs comprar una solución técnica</div>
+                                    </div>
+                                </div>
+                                <div class="instructor-card absolute" style="left: 180px; top: 0; z-index: 3;">
+                                    <img src="images/professionals/diana_lipcanu.jpeg" alt="Diana Lipcanu" class="w-[6.5rem] h-[6.5rem] rounded-xl object-cover shadow-card transform -rotate-2">
+                                    <div class="instructor-tooltip">
+                                        <div class="name">Diana Lipcanu</div>
+                                        <div class="role">Cómo combinar research cuantitativo y cualitativo en producto</div>
+                                    </div>
+                                </div>
+                                <!-- Row 2 -->
+                                <div class="instructor-card absolute" style="left: 20px; top: 105px; z-index: 4;">
+                                    <img src="images/professionals/juan_luis_hernandez.jpg" alt="Juan Luis Hernández" class="w-[6rem] h-[6rem] rounded-xl object-cover shadow-card" style="transform: rotate(8deg);">
+                                    <div class="instructor-tooltip">
+                                        <div class="name">Juan Luis Hernández</div>
+                                        <div class="role">Buenas prácticas en el análisis de producto de principio a fin</div>
+                                    </div>
+                                </div>
+                                <div class="instructor-card absolute" style="left: 120px; top: 95px; z-index: 5;">
+                                    <img src="images/professionals/ivan_martinez.jpeg" alt="Iván Martínez" class="w-[6.75rem] h-[6.75rem] rounded-xl object-cover shadow-card" style="transform: rotate(-7deg);">
+                                    <div class="instructor-tooltip">
+                                        <div class="name">Iván Martínez</div>
+                                        <div class="role">Cómo construir productos que optimizan procesos operativos de la empresa</div>
+                                    </div>
+                                </div>
+                                <div class="instructor-card absolute" style="left: 230px; top: 108px; z-index: 6;">
+                                    <img src="images/professionals/roberto_cruz.jpeg" alt="Roberto Cruz" class="w-[5.5rem] h-[5.5rem] rounded-xl object-cover shadow-card" style="transform: rotate(11deg);">
+                                    <div class="instructor-tooltip">
+                                        <div class="name">Roberto Cruz</div>
+                                        <div class="role">Cómo aprovechar la IA en nuestros productos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="order-1 md:order-2">
-                    <h3 class="text-2xl md:text-3xl font-bold text-brand-dark mb-6">
-                        Javier Escribano
-                    </h3>
+                <div class="order-1 lg:order-2 max-w-xl mx-auto lg:max-w-none lg:mx-0">
                     <p class="text-lg text-brand-gray mb-6 leading-relaxed">
-                        Escuela Escribano es una iniciativa liderada por Javier Escribano, apoyado por otros líderes de producto, enfocada en resolver los desafíos del desarrollo profesional en el mundo del producto digital.
+                        Hola,
+                    </p>
+                    <p class="text-lg text-brand-gray mb-6 leading-relaxed">
+                        He fundado y liderado startups de alto crecimiento, creando productos digitales usados por millones de usuarios y liderando equipos de más de 80 personas entre producto e ingeniería. En ese camino he formado a más de 500 profesionales, muchos de los cuales hoy lideran equipos en empresas como Idealista, Factorial, Cobee o Flywire.
+                    </p>
+                    <p class="text-lg text-brand-gray mb-6 leading-relaxed">
+                        Llevo desde 2016 construyendo equipos con una cultura muy clara: profesionales obsesionados por entender el problema, por analizar los datos, por conversar con los clientes, por pensar antes de tirarse a la solución. Profesionales que conocen el negocio y toman mejores decisiones.
+                    </p>
+                    <p class="text-lg text-brand-gray mb-6 leading-relaxed">
+                        Con la IA, todo esto cobra más sentido que nunca. Lo que llevo transmitiendo todos estos años —profesionales empoderados, analíticos, conectados con el negocio— es exactamente lo que este nuevo mundo necesita. La IA ejecuta cada vez más rápido; lo que nos queda a nosotros es pensar mejor.
                     </p>
                     <p class="text-lg text-brand-gray mb-8 leading-relaxed">
-                        Con años de experiencia liderando equipos de producto en startups de alto crecimiento, Javier ha diseñado estos cursos para compartir las metodologías y conocimientos que realmente marcan la diferencia.
+                        Nos encantaría formarte a ti o a tu equipo. Haceros pensar. Ayudaros a ser profesionales más completos y preparados para este nuevo mundo.
                     </p>
-                    <div class="flex items-center space-x-4">
-                        <a href="https://twitter.com/javiescribano" target="_blank" rel="noopener noreferrer" class="text-brand-gray hover:text-brand-blue transition-colors">
+                    <p class="text-lg text-brand-gray mb-8 leading-relaxed">
+                        Esperamos verte pronto,
+                    </p>
+                    <p class="text-lg text-brand-gray mb-8 leading-relaxed">
+                        Javier Escribano.
+                    </p>
+                    <div class="flex items-center space-x-6">
+                        <a href="https://x.com/fesja" target="_blank" rel="noopener noreferrer" class="text-brand-gray hover:text-brand-blue transition-colors">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                             </svg>
                         </a>
-                        <a href="https://linkedin.com/in/javiescribano" target="_blank" rel="noopener noreferrer" class="text-brand-gray hover:text-brand-blue transition-colors">
+                        <a href="https://linkedin.com/in/fesja" target="_blank" rel="noopener noreferrer" class="text-brand-gray hover:text-brand-blue transition-colors">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                             </svg>
@@ -169,125 +378,129 @@
     </section>
 
     <!-- Courses Section -->
-    <section id="cursos" class="py-16 md:py-24 bg-brand-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <p class="text-brand-blue font-semibold text-sm uppercase tracking-wider mb-3">Formación especializada</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Nuestros Cursos</h2>
+    <section id="cursos" class="py-20 md:py-32 bg-white">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-brand-blue font-semibold text-sm uppercase tracking-wider mb-4">Nuestros cursos</p>
+                <h2 class="text-[42px] leading-[1.2] font-light text-brand-dark mb-6">Formación para profesionales de producto</h2>
                 <p class="text-lg text-brand-gray max-w-2xl mx-auto">
-                    Cursos diseñados para profesionales de producto que quieren llevar sus habilidades al siguiente nivel.
+                    Cursos intensivos donde aprenderás a entender problemas en profundidad, analizar datos con criterio y tomar mejores decisiones conectadas con el negocio.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-10">
                 <!-- Course 1: Fundamentals of Product Analytics -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="aspect-video overflow-hidden">
+                <div class="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <a href="https://cursos.escuelaescribano.com/course-fundamentals-product-analytics#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="block aspect-[16/10] overflow-hidden">
                         <img
-                            src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/6553e10b21e0d54ec1ba1798_Fundamentals%20of%20Product%20Analytics%20%E2%80%93%20Homepage.jpg"
+                            src="images/course_fundamentals_analytics.jpg"
                             alt="Fundamentals of Product Analytics"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         >
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-brand-blue text-xs font-semibold rounded-full">Product</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-semibold rounded-full">Design</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-600 text-xs font-semibold rounded-full">Engineering</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Fundamentals of Product Analytics</h3>
+                    </a>
+                    <div class="p-10">
+                        <a href="https://cursos.escuelaescribano.com/course-fundamentals-product-analytics#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="block">
+                            <h4 class="text-[22px] font-medium text-brand-dark mb-4 hover:text-brand-blue transition-colors">Fundamentals of Product Analytics</h4>
+                        </a>
                         <p class="text-brand-gray mb-6 leading-relaxed">
-                            Introducción ideal para profesionales con experiencia limitada en analítica. Aprenderás a manipular y visualizar datos, conocerás los KPIs esenciales de producto y comunicarás tus hallazgos de forma coherente.
+                            Ideal para profesionales que quieren empezar a trabajar con datos. Aprenderás a manipular y visualizar información, conocerás los KPIs esenciales y sabrás comunicar tus hallazgos con claridad.
                         </p>
-                        <a href="#contacto" class="inline-flex items-center justify-center w-full bg-brand-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                            Inscribirme
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
+                        <div class="mb-6 flex flex-col gap-2">
+                            <span class="inline-flex items-center gap-2 text-sm text-green-700 bg-green-50 px-3 py-2 rounded-lg">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="5"/></svg>
+                                Inscripciones abiertas · Empieza cuando quieras
+                            </span>
+                            <span class="text-sm text-brand-gray">+100 profesionales ya lo han completado</span>
+                        </div>
+                        <a href="https://cursos.escuelaescribano.com/course-fundamentals-product-analytics#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="btn-primary w-full text-center">
+                            Ver curso
                         </a>
                     </div>
                 </div>
 
                 <!-- Course 2: Advanced Course in Product Analytics -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="aspect-video overflow-hidden">
+                <div class="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <a href="https://cursos.escuelaescribano.com/advanced-course-product-analytics#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="block aspect-[16/10] overflow-hidden">
                         <img
-                            src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/66716cfc1fd977827d91e078_Advanced%20Course%20in%20Product%20Analytics%20Ed9%20%E2%80%93%20Homepage.jpg"
+                            src="images/course_advanced_analytics.jpg"
                             alt="Advanced Course in Product Analytics"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         >
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-brand-blue text-xs font-semibold rounded-full">Product</span>
-                            <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-semibold rounded-full">Data</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-600 text-xs font-semibold rounded-full">Engineering</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Advanced Course in Product Analytics</h3>
+                    </a>
+                    <div class="p-10">
+                        <a href="https://cursos.escuelaescribano.com/advanced-course-product-analytics#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="block">
+                            <h4 class="text-[22px] font-medium text-brand-dark mb-4 hover:text-brand-blue transition-colors">Advanced Course in Product Analytics</h4>
+                        </a>
                         <p class="text-brand-gray mb-6 leading-relaxed">
-                            Enfocado en usar datos para tomar decisiones estratégicas y optimizar el rendimiento del producto. Aprenderás a vincular métricas de negocio y producto, profundizando más allá de los datos superficiales.
+                            Aprenderás a usar datos para tomar decisiones estratégicas conectadas con el negocio. Irás más allá de las métricas superficiales para entender qué está pasando realmente en tu producto.
                         </p>
-                        <a href="#contacto" class="inline-flex items-center justify-center w-full bg-brand-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                            Inscribirme
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
+                        <div class="mb-6 flex flex-col gap-2">
+                            <span class="inline-flex items-center gap-2 text-sm text-brand-blue bg-blue-50 px-3 py-2 rounded-lg">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                Próxima edición: 27 febrero – 17 abril
+                            </span>
+                            <span class="text-sm text-brand-gray">+150 profesionales ya lo han completado</span>
+                        </div>
+                        <a href="https://cursos.escuelaescribano.com/advanced-course-product-analytics#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="btn-primary w-full text-center">
+                            Ver curso
                         </a>
                     </div>
                 </div>
 
                 <!-- Course 3: Fundamentals of Software Engineering -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="aspect-video overflow-hidden">
+                <div class="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <a href="https://cursos.escuelaescribano.com/course-fundamentals-software-engineering#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="block aspect-[16/10] overflow-hidden">
                         <img
-                            src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/6554078aafb97d26ea76201a_Fundamentals%20of%20Software%20Engineering%20%E2%80%93%20Homepage.jpg"
+                            src="images/course_fundamentals_engineering.jpg"
                             alt="Fundamentals of Software Engineering"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         >
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-brand-blue text-xs font-semibold rounded-full">Product</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-semibold rounded-full">Design</span>
-                            <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-semibold rounded-full">Data</span>
-                            <span class="px-3 py-1 bg-pink-100 text-pink-600 text-xs font-semibold rounded-full">Business</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Fundamentals of Software Engineering</h3>
+                    </a>
+                    <div class="p-10">
+                        <a href="https://cursos.escuelaescribano.com/course-fundamentals-software-engineering#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="block">
+                            <h4 class="text-[22px] font-medium text-brand-dark mb-4 hover:text-brand-blue transition-colors">Fundamentals of Software Engineering</h4>
+                        </a>
                         <p class="text-brand-gray mb-6 leading-relaxed">
-                            Perfecto para profesionales con experiencia limitada en ingeniería de software. Te familiarizarás con conceptos arquitectónicos clave y las tecnologías esenciales de los productos digitales modernos.
+                            Ideal para profesionales que quieren entender mejor cómo funciona la tecnología. Te familiarizarás con conceptos arquitectónicos clave y las tecnologías esenciales de los productos digitales.
                         </p>
-                        <a href="#contacto" class="inline-flex items-center justify-center w-full bg-brand-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                            Inscribirme
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
+                        <div class="mb-6 flex flex-col gap-2">
+                            <span class="inline-flex items-center gap-2 text-sm text-brand-orange bg-orange-50 px-3 py-2 rounded-lg">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                Actualmente en construcción
+                            </span>
+                            <span class="text-sm text-brand-gray">+50 profesionales ya lo están haciendo</span>
+                        </div>
+                        <a href="https://cursos.escuelaescribano.com/course-fundamentals-software-engineering#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="btn-primary w-full text-center">
+                            Ver curso
                         </a>
                     </div>
                 </div>
 
                 <!-- Course 4: Advanced Course in Product Engineering -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="aspect-video overflow-hidden">
+                <div class="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <a href="https://cursos.escuelaescribano.com/advanced-course-product-engineering#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="block aspect-[16/10] overflow-hidden">
                         <img
-                            src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/66716cdf89fa258d6a6b8879_Advanced%20Course%20in%20Product%20Engineering%20Ed7%20%E2%80%93%20Homepage.jpg"
+                            src="images/course_advanced_engineering.jpg"
                             alt="Advanced Course in Product Engineering"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         >
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-green-100 text-green-600 text-xs font-semibold rounded-full">Engineering</span>
-                            <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-semibold rounded-full">Data</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Advanced Course in Product Engineering</h3>
+                    </a>
+                    <div class="p-10">
+                        <a href="https://cursos.escuelaescribano.com/advanced-course-product-engineering#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="block">
+                            <h4 class="text-[22px] font-medium text-brand-dark mb-4 hover:text-brand-blue transition-colors">Advanced Course in Product Engineering</h4>
+                        </a>
                         <p class="text-brand-gray mb-6 leading-relaxed">
-                            Aprenderás el cambio de mentalidad y las técnicas necesarias para transformarte a ti y a tu equipo en Product Engineers. Más allá del código, comprenderás el ciclo de vida completo del producto.
+                            Aprenderás a pensar como un Product Engineer: más allá del código, entendiendo el problema, analizando el contexto y tomando decisiones que impactan en el negocio.
                         </p>
-                        <a href="#contacto" class="inline-flex items-center justify-center w-full bg-brand-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                            Inscribirme
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
+                        <div class="mb-6 flex flex-col gap-2">
+                            <span class="inline-flex items-center gap-2 text-sm text-brand-blue bg-blue-50 px-3 py-2 rounded-lg">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                Próxima edición: abril 2025
+                            </span>
+                            <span class="text-sm text-brand-gray">+150 profesionales ya lo han completado</span>
+                        </div>
+                        <a href="https://cursos.escuelaescribano.com/advanced-course-product-engineering#utm_source=escuelaescribano&utm_id=landing.home&utm_medium=link" class="btn-primary w-full text-center">
+                            Ver curso
                         </a>
                     </div>
                 </div>
@@ -296,94 +509,372 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonios" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <p class="text-brand-blue font-semibold text-sm uppercase tracking-wider mb-3">Testimonios</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark">¿Qué dicen sobre nosotros?</h2>
+    <section id="testimonios" class="py-20 md:py-32 bg-brand-light">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-brand-blue font-semibold text-sm uppercase tracking-wider mb-4">Testimonios de antiguos alumnos</p>
+                <h2 class="text-[42px] leading-[1.2] font-light text-brand-dark">¿Qué dicen sobre nosotros?</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-brand-light rounded-2xl p-8">
-                    <div class="flex items-center mb-6">
-                        <img
-                            src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/6303e573be5931ad1849cb9a_david_bernabeu.jpeg"
-                            alt="David Bernabeu"
-                            class="w-16 h-16 rounded-full object-cover mr-4"
-                        >
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Testimonial 1 - Maria Paula Espinel -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        "Si quieres entender tu negocio y producto a través de datos y justificar por qué tu feature ahorra dinero o aumenta ingresos, <strong class="text-brand-dark">este curso es ideal. Vale 200%.</strong>"
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/maria_paula_espinel.jpg" alt="Maria Paula Espinel" class="w-14 h-14 rounded-full object-cover mr-4">
                         <div>
-                            <h4 class="font-bold text-brand-dark">David Bernabeu</h4>
-                            <p class="text-brand-gray text-sm">Founder & CEO</p>
-                            <img
-                                src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/6303e91bf2289da0205eda98_citibox.png"
-                                alt="Citibox"
-                                class="h-6 mt-2"
-                            >
+                            <h5 class="font-semibold text-brand-dark">Maria Paula Espinel</h5>
+                            <p class="text-brand-gray text-sm">Lead PM en Idealista. Adv. Product Analytics</p>
                         </div>
                     </div>
-                    <blockquote class="text-brand-gray leading-relaxed italic">
-                        "Los cursos de Escuela Escribano han sido fundamentales para elevar el nivel de nuestro equipo de producto. La metodología práctica y el enfoque en casos reales marca la diferencia."
-                    </blockquote>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="bg-brand-light rounded-2xl p-8">
-                    <div class="flex items-center mb-6">
-                        <img
-                            src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/6303e5699127766f39c0c4d0_emilio_mellado.jpeg"
-                            alt="Emilio Mellado"
-                            class="w-16 h-16 rounded-full object-cover mr-4"
-                        >
+                <!-- Testimonial 2 - Fani Sanchez -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        Lo recomiendo 200%. Es un curso que te hace pensar en lugar de repetir ejercicios. Te despeja la mente para reaprender a pensar. Eso sí, ¡son seis semanas muy intensas!
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/fani_sanchez.jpg" alt="Fani Sanchez" class="w-14 h-14 rounded-full object-cover mr-4">
                         <div>
-                            <h4 class="font-bold text-brand-dark">Emilio Mellado</h4>
-                            <p class="text-brand-gray text-sm">Co-founder & CEO</p>
-                            <img
-                                src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/6305c7782615546ffd0135aa_WorldWideMobility_Horizontal.png"
-                                alt="World Wide Mobility"
-                                class="h-6 mt-2"
-                            >
+                            <h5 class="font-semibold text-brand-dark">Fani Sanchez</h5>
+                            <p class="text-brand-gray text-sm">Head of Product en mendesaltaren. Adv. Product Analytics</p>
                         </div>
                     </div>
-                    <blockquote class="text-brand-gray leading-relaxed italic">
-                        "La formación en Product Analytics nos ha permitido tomar decisiones basadas en datos de forma más eficiente. Altamente recomendado para cualquier equipo de producto."
+                </div>
+
+                <!-- Testimonial 3 - Victoria Pérez -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        "<strong class="text-brand-dark">Es un curso que todo el mundo debería hacer.</strong> He mejorado mi relación con mis compañeros de ingeniería y mi forma de pensar al abordar nuevos problemas."
                     </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/victoria_perez.jpg" alt="Victoria Pérez" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-dark">Victoria Pérez</h5>
+                            <p class="text-brand-gray text-sm">Technical PM en iZertis. Adv. Product Engineering</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 - Borja Torán -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        100% recomendado para cualquiera que forme parte de un equipo de Product & Tech. Sacas muchas ideas para implementar. Debates enriquecedores con compañeros.
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/borja_toran.jpg" alt="Borja Torán" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-dark">Borja Torán</h5>
+                            <p class="text-brand-gray text-sm">Head of Engineering en Cobee. Adv. Product Engineering</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 - Leo Martínez -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        "Fuimos seis de nuestro equipo. <strong class="text-brand-dark">El valor percibido es mayor que el de otros cursos que hemos hecho.</strong> Todos estamos contentos y ¡hasta habéis convertido a los escépticos!"
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/leo_martinez.jpg" alt="Leo Martínez" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-dark">Leo Martínez</h5>
+                            <p class="text-brand-gray text-sm">Co-Founder & CTO en CoCircular. Adv. Product Engineering</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 - Manuel Toledo -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        Ahora hago mejores preguntas. Tengo más claridad sobre qué buscar y dónde. Si ya eres data-driven, sacarás 10 veces más valor de tu rutina diaria.
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/manuel_toledo.jpg" alt="Manuel Toledo" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-dark">Manuel Toledo</h5>
+                            <p class="text-brand-gray text-sm">Senior PM en IskayPet. Adv. Product Analytics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 7 - Rosana Rodríguez -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        He pasado de desarrollar según peticiones del cliente a enfocar mis decisiones en métricas y objetivos específicos. El curso me ha enseñado a identificar funnels y métricas clave.
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/rosana_rodriguez.jpg" alt="Rosana Rodríguez" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-dark">Rosana Rodríguez</h5>
+                            <p class="text-brand-gray text-sm">Product Owner en Eugen Solutions. Fundamentals Analytics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 8 - Diego Cano -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        Me ha aportado muchísimo. La profundidad y complejidad de los ejercicios son clave para absorber la forma de pensar. La conexión con el negocio me ayudó mucho a conectar ideas.
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/diego_cano.jpg" alt="Diego Cano" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-dark">Diego Cano</h5>
+                            <p class="text-brand-gray text-sm">Design Lead en Factorial. Adv. Product Analytics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 9 - Carlos Pastor -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        "Llegué al curso esperando aprender la perspectiva de la gente de Producto. <strong class="text-brand-dark">Me voy abrazando el producto y deseando que todo el equipo se involucre desde el problema.</strong>"
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/carlos_pastor.jpg" alt="Carlos Pastor" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-dark">Carlos Pastor</h5>
+                            <p class="text-brand-gray text-sm">Eng. Manager en Flywire. Adv. Product Engineering</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 10 - Clara Torrijos -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        Me encanta el contenido y los ejemplos; son súper útiles para mí. Estoy aplicando lo que aprendo a mi propio producto, lo que hace que el curso sea aún más enriquecedor.
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/clara_torrijos.jpg" alt="Clara Torrijos" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-dark">Clara Torrijos</h5>
+                            <p class="text-brand-gray text-sm">Founder en GoKoan. Fundamentals Analytics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 11 - Lourdes Convertida -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        El curso me está ayudando no solo a mejorar en el área de datos, sino también a hacer las preguntas correctas durante la fase de Discovery de nuevos proyectos.
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/lourdes_convertida.jpg" alt="Lourdes Convertida" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-dark">Lourdes Convertida</h5>
+                            <p class="text-brand-gray text-sm">Product Designer en Crowdfarming. Fundamentals Analytics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 12 - Diego de Amil -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <blockquote class="text-brand-gray leading-relaxed mb-6">
+                        El temario es perfecto para alguien que empieza en analítica como yo. Los vídeos prácticos desde el principio han sido muy útiles, aprendo mejor experimentando.
+                    </blockquote>
+                    <div class="flex items-center">
+                        <img src="images/testimonials/diego_de_amil.jpg" alt="Diego de Amil" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h5 class="font-semibold text-brand-dark">Diego de Amil</h5>
+                            <p class="text-brand-gray text-sm">PM en UCI. Fundamentals Analytics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section id="empresas" class="py-20 md:py-32 bg-white">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="text-center mb-20">
+                <p class="text-brand-blue font-semibold text-sm uppercase tracking-wider mb-4">Empresas que confían en nosotros</p>
+                <h2 class="text-[42px] leading-[1.2] font-light text-brand-dark">Formamos a profesionales de las mejores empresas</h2>
+            </div>
+
+            <!-- Logos Grid with Names - 4 rows x 5 columns -->
+            <div class="max-w-3xl mx-auto">
+                <div class="grid grid-cols-4 md:grid-cols-5 gap-x-8 gap-y-10 items-start justify-items-center">
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/inditex.png" alt="Inditex" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Inditex</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/lidl.png" alt="Lidl" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Lidl</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/elcorteingles.png" alt="El Corte Inglés" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium text-center">El Corte Inglés</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/roche.png" alt="Roche" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Roche</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/factorial.png" alt="Factorial" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Factorial</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/idealista.png" alt="Idealista" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Idealista</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/flywire.png" alt="Flywire" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Flywire</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/cobee.png" alt="Cobee" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Cobee</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/seedtag.png" alt="Seedtag" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Seedtag</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/carto.png" alt="Carto" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Carto</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/taxdown.png" alt="Taxdown" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Taxdown</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/citibox.png" alt="Citibox" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Citibox</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/ebury.png" alt="Ebury" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Ebury</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/pccomponentes.png" alt="PC Componentes" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium text-center">PcComponentes</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/ironhack.png" alt="Ironhack" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Ironhack</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/automattic.png" alt="Automattic" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Automattic</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/galp.png" alt="Galp" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Galp</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/uci.png" alt="UCI" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">UCI</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/iskaypet.png" alt="IskayPet" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">IskayPet</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3 group">
+                        <div class="w-14 h-14 flex items-center justify-center grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/companies/coverwallet.png" alt="Coverwallet" class="max-h-12 max-w-12 object-contain">
+                        </div>
+                        <span class="text-xs text-brand-gray group-hover:text-brand-dark transition-colors font-medium">Coverwallet</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional companies text -->
+            <p class="text-center text-brand-gray mt-8 mb-20">
+                Y más de 30 empresas adicionales que han confiado en nosotros para formar a sus equipos.
+            </p>
+
+            <!-- CTA for companies -->
+            <div class="bg-brand-light rounded-2xl p-10 md:p-12">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-[28px] leading-[1.3] font-light text-brand-dark mb-4">¿Quieres formar a tu equipo?</h3>
+                        <p class="text-brand-gray leading-relaxed">
+                            Tu equipo puede unirse a nuestras ediciones en abierto junto a profesionales de otras empresas, o podemos organizar cursos exclusivos para vosotros adaptados a vuestras necesidades.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 md:justify-end">
+                        <a href="#cursos" class="btn-primary text-center">
+                            Ver próximas ediciones
+                        </a>
+                        <a href="mailto:javier@escuelaescribano.com?subject=Formación para mi equipo" class="btn-secondary text-center">
+                            Contactar
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section id="contacto" class="py-16 md:py-24 bg-brand-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contacto" class="py-20 md:py-32 bg-brand-dark">
+        <div class="max-w-[1200px] mx-auto px-6">
             <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Si yo fuera vuestro CPO</h2>
-                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
-                    Newsletter dirigida a fundadores, CxOs y líderes de producto con buenas prácticas para construir equipos empoderados y productos exitosos.
+                <h2 class="text-[42px] leading-[1.2] font-light text-white mb-6">Si yo fuera vuestro CPO</h2>
+                <p class="text-lg text-gray-400 mb-10 leading-relaxed">
+                    Newsletter para quienes lideramos producto. La IA está redefiniendo cómo trabajamos, qué habilidades necesitamos y cómo organizamos nuestros equipos. Lo experimento cada día con mi startup y aquí comparto lo que voy aprendiendo sobre este nuevo mundo.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a
-                        href="https://javiescribano.substack.com/"
+                        href="https://escuelaescribano.substack.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center justify-center bg-brand-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
+                        class="inline-flex items-center justify-center bg-brand-blue text-white px-8 py-4 rounded-pill font-semibold text-base hover:bg-blue-600 hover:scale-[0.96] transition-all"
                     >
                         Unirme a la newsletter
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
                     </a>
                 </div>
 
-                <div class="mt-12 pt-12 border-t border-gray-700">
-                    <p class="text-gray-400 mb-4">¿Tienes preguntas sobre los cursos?</p>
+                <div class="mt-16 pt-16 border-t border-gray-700">
+                    <p class="text-gray-500 mb-5 text-lg">¿Tienes preguntas sobre los cursos?</p>
                     <a
-                        href="mailto:hola@escuelaescribano.com"
-                        class="inline-flex items-center text-white hover:text-brand-blue transition-colors font-semibold"
+                        href="mailto:javier@escuelaescribano.com"
+                        class="btn-secondary-light"
                     >
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
                         Contacta conmigo
                     </a>
                 </div>
@@ -392,31 +883,31 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark border-t border-gray-800 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer class="bg-brand-dark border-t border-gray-800 py-10">
+        <div class="max-w-[1200px] mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center mb-4 md:mb-0">
+                <div class="flex items-center mb-6 md:mb-0">
                     <img
-                        src="https://cdn.prod.website-files.com/62fddcfe5a962658ea490178/6319b185ecec32621ad687ef_logo_escuela_escribano_white_transparent.svg"
+                        src="images/logo_white.svg"
                         alt="Escuela Escribano"
-                        class="h-8"
+                        class="h-14"
                     >
                 </div>
-                <div class="flex items-center space-x-6">
-                    <a href="https://twitter.com/javiescribano" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-center space-x-8">
+                    <a href="https://x.com/fesja" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                         </svg>
                     </a>
-                    <a href="https://linkedin.com/in/javiescribano" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="https://linkedin.com/in/fesja" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                     </a>
                 </div>
             </div>
-            <div class="mt-6 text-center text-gray-500 text-sm">
-                <p>&copy; 2024 Escuela Escribano. Todos los derechos reservados.</p>
+            <div class="mt-8 text-center text-gray-600 text-base">
+                <p>&copy; 2026 Escuela Escribano. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
